@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EdgeClip+</string>
+    <string name="accessibility_desc">Enables EdgeClip+ to detect paste/copy interactions and assist clipboard automation.</string>
+</resources>
