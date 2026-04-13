@@ -63,6 +63,9 @@ dependencies {
 
     implementation("androidx.compose.material3:material3:1.3.1")
 
+    // IMPORTANT: needed for theme resources + compatibility
+    implementation("com.google.android.material:material:1.12.0")
+
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 
@@ -80,7 +83,7 @@ dependencies {
     // Core
     implementation("androidx.core:core-ktx:1.15.0")
 
-    // AppCompat (needed for some system compat)
+    // AppCompat
     implementation("androidx.appcompat:appcompat:1.7.0")
 
     // Datastore (future settings)
