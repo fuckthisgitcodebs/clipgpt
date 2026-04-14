@@ -4,7 +4,6 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
-import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
@@ -94,8 +93,7 @@ class ClipboardMonitorService : Service() {
         return NotificationCompat.Builder(this, "edgeclip_clipboard")
             .setContentTitle("EdgeClip+ Running")
             .setContentText("Clipboard monitoring active")
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setOngoing(true)
+            .setSmallIcon(R.drawable.ic_edgeclip)
             .build()
     }
 }

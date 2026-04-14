@@ -1,8 +1,7 @@
 package com.ultrasalt.edgeclipplus.service
 
-import android.app.Activity
 import android.os.Bundle
-import android.view.WindowManager
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,30 +17,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ultrasalt.edgeclipplus.data.ClipDatabase
 import com.ultrasalt.edgeclipplus.ui.theme.EdgeClipTheme
-import kotlinx.coroutines.flow.Flow
 
-class OverlayPanelActivity : Activity() {
+class OverlayPanelActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window.addFlags(
-            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
-                    WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-        )
-
         setContent {
             EdgeClipTheme {
                 val dao = ClipDatabase.get().clipDao()
-                val clipsFlow: Flow<List<com.ultrasalt.edgeclipplus.data.ClipEntity>> =
-                    dao.getRecentClips(100)
-
-                val clips by clipsFlow.collectAsState(initial = emptyList())
+                val clips by dao.getRecentClips(100).collectAsState(initial = emptyList())
 
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.95f))
+                        .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.10f))
                         .clickable { finish() }
                 ) {
                     Column(
